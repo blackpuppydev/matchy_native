@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20sp"
+    android:background="@color/bg_main"
+    tools:context=".fragment.main.ClosetFragment">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
+        android:src="@drawable/imgbgcloset"
+        android:layout_marginBottom="10sp"
+        android:adjustViewBounds="true"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/montserratbold"
+        android:textColor="@color/main"
+        android:layout_marginBottom="20sp"
+        android:layout_marginTop="20sp"
+        android:textStyle="bold"
+        android:text="Your closet still empty \n let's add your lovely clothes"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10sp"
+        android:background="@drawable/base_button2"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/imgaddcloset"
+            android:background="@drawable/base_circle_2"
+            android:adjustViewBounds="true"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="10sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserratbold"
+            android:textColor="@color/black"
+            android:text="A D D  Y O U R  C L O S E T S" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

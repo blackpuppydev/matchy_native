@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Discover"
+        android:id="@+id/discover"
+        android:icon="@drawable/ic_discover"/>
+
+    <item android:title="Style"
+        android:id="@+id/style"
+        android:icon="@drawable/ic_style"/>
+
+    <item android:title="Closet"
+        android:id="@+id/closet"
+        android:icon="@drawable/ic_closet"/>
+
+    <item android:title="Commu"
+        android:id="@+id/commu"
+        android:icon="@drawable/ic_commu"/>
+
+    <item android:title="Profile"
+        android:id="@+id/profile"
+        android:icon="@drawable/imgprofile"/>
+
+
+</menu>

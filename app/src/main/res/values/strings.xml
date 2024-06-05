@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">matchy-native</string>
+    <string name="id">ID</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="signup">SIGN UP</string>
+
+
+    <string name="forgot_password"><u>F O R G O T P A S S W O R D</u></string>
+    <string name="login">L O G I N</string>
+    <string name="mail_phone">Email or Phone</string>
+    <string name="name">Name</string>
+    <string name="next">N E X T</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

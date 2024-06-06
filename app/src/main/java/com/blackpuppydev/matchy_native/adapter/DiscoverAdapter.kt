@@ -1,18 +1,15 @@
 package com.blackpuppydev.matchy_native.adapter
 
-import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.api.response.DiscoverResponse
 import com.blackpuppydev.matchy_native.databinding.DiscoverAdapterBinding
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 
-abstract class DiscoverAdapter(var list_discover: ArrayList<DiscoverResponse>?) : RecyclerView.Adapter<DiscoverAdapter.DiscoverViewHolder>() {
+abstract class DiscoverAdapter(private var list_discover: ArrayList<DiscoverResponse>,var type_page:String) : RecyclerView.Adapter<DiscoverAdapter.DiscoverViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): DiscoverAdapter.DiscoverViewHolder {
         val binding = DiscoverAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -38,19 +35,25 @@ abstract class DiscoverAdapter(var list_discover: ArrayList<DiscoverResponse>?) 
         fun setView(discover:DiscoverResponse){
             binding.apply {
                 name.text = discover.name
-                percent.text = discover.pairing.toString()
-                imageProfile.setImageURI(null)
-//                imageProfile.setImageURI(Uri.parse(discover.imgProfile))
-
                 Glide.with(itemView.context).load(discover.imgProfile)
                     .into(imageProfile)
 
-
-//                Glide.with(this).load(item.hrefImage)
-//                    .into(findViewById(R.id.item_image) as ImageView?)
+                when (type_page) {
+                    "pairing" -> {
+                        textDiscover.text = discover.pairing.toString()
+                        iconDiscover.setBackgroundResource(R.drawable.ic_pairing)
+                    }
+                    "popular" -> {
+                        textDiscover.text = discover.follower.toString()
+                        iconDiscover.setBackgroundResource(R.drawable.ic_follower)
+                    }
+                    "need help" -> {
+                        textDiscover.text = discover.activity
+                        iconDiscover.setBackgroundResource(R.drawable.ic_live)
+                    }
+                }
             }
 
-            Log.d("DiscoverViewHolder : " , discover.imgProfile)
         }
 
     }

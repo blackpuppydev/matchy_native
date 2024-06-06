@@ -8,17 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.blackpuppydev.matchy_native.adapter.DiscoverAdapter
 import com.blackpuppydev.matchy_native.api.response.DiscoverResponse
 import com.blackpuppydev.matchy_native.databinding.FragmentDiscoverBinding
 import com.blackpuppydev.matchy_native.listener.MainFragmentEvent
+import com.google.android.material.tabs.TabLayout
 
 private const val LIST_DISCOVER = "discover"
 
 class DiscoverFragment : Fragment() {
 
-    private var listDiscover: ArrayList<DiscoverResponse>? = null
+    private var list_discover: ArrayList<DiscoverResponse>? = null
     private lateinit var listener:MainFragmentEvent
     private lateinit var binding:FragmentDiscoverBinding
 
@@ -26,7 +26,7 @@ class DiscoverFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            listDiscover = it.getSerializable(LIST_DISCOVER) as ArrayList<DiscoverResponse>
+            list_discover = it.getSerializable(LIST_DISCOVER) as ArrayList<DiscoverResponse>
         }
 
     }
@@ -48,25 +48,62 @@ class DiscoverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.listDiscover.apply {
-            layoutManager = GridLayoutManager(context, 2)
-            adapter = object : DiscoverAdapter(listDiscover){
-                override fun onResult(result: DiscoverResponse) {
-                    Log.d("listDiscover",result.name + " " + result.pairing)
+        binding.apply {
+            listDiscover.apply {
+                layoutManager = GridLayoutManager(context, 2)
+                adapter = object : DiscoverAdapter(list_discover!!,"pairing"){
+                    override fun onResult(result: DiscoverResponse) {
+                        Log.d("listDiscover",result.name + " " + result.pairing)
+                    }
                 }
             }
+
+            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    val position = tab!!.position
+                    var page = ""
+
+                    when (position) {
+                        //pairing
+                        0 -> page = "pairing"
+                        //popular
+                        1 -> page = "popular"
+                        //need help
+                        2 -> page = "need help"
+                    }
+
+                    listDiscover.adapter = object : DiscoverAdapter(list_discover!!,page){
+                        override fun onResult(result: DiscoverResponse) {
+                            Log.d("listDiscover",result.name + " " + result.pairing)
+                        }
+                    }
+
+
+                    Log.d("tab position select : " , position.toString())
+
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+
+                }
+
+            })
         }
+
     }
 
 
 
     companion object {
         @JvmStatic
-        fun newInstance(listDiscover: ArrayList<DiscoverResponse>) =
+        fun newInstance(list_discover: ArrayList<DiscoverResponse>) =
             DiscoverFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(LIST_DISCOVER, listDiscover)
+                    putSerializable(LIST_DISCOVER, list_discover)
                 }
             }
     }

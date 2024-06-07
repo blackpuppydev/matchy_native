@@ -49,6 +49,7 @@ class DiscoverFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
+
             listDiscover.apply {
                 layoutManager = GridLayoutManager(context, 2)
                 adapter = object : DiscoverAdapter(list_discover!!,"pairing"){
@@ -58,7 +59,8 @@ class DiscoverFragment : Fragment() {
                 }
             }
 
-            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     val position = tab!!.position
                     var page = ""
@@ -67,7 +69,10 @@ class DiscoverFragment : Fragment() {
                         //pairing
                         0 -> page = "pairing"
                         //popular
-                        1 -> page = "popular"
+                        1 -> {
+                            page = "popular"
+                            list_discover = getSortFollower(list_discover!!)
+                        }
                         //need help
                         2 -> page = "need help"
                     }
@@ -106,6 +111,13 @@ class DiscoverFragment : Fragment() {
                     putSerializable(LIST_DISCOVER, list_discover)
                 }
             }
+    }
+
+
+    fun getSortFollower(list_discover:ArrayList<DiscoverResponse>) : ArrayList<DiscoverResponse>?{
+        val sortFollower = list_discover.sortedBy{ it.follower }
+        Log.d("getSortFollower : ", sortFollower[0].follower.toString())
+        return sortFollower as ArrayList<DiscoverResponse>?
     }
 
 

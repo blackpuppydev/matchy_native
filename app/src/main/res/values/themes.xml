@@ -10,6 +10,7 @@
     </style>
 
 
+
     <style name="BottomNavigationView" parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/montserratmedium</item>
     </style>

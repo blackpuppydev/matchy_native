@@ -59,7 +59,7 @@
             android:layout_margin="10sp"
             android:textStyle="bold"
             android:fontFamily="@font/montserratbold"
-            android:textColor="@color/black"
+            android:textColor="@color/text"
             android:text="A D D  Y O U R  C L O S E T S" />
 
     </LinearLayout>

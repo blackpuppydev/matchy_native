@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:padding="20sp">
+            android:padding="20dp">
 
 
             <TextView
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/base_edit"
                     android:fontFamily="@font/montserratmedium"
-                    android:padding="10sp"
+                    android:padding="10dp"
                     android:text="AUTO MATCH"
                     android:layout_marginRight="10sp"
                     android:textColor="@color/main"

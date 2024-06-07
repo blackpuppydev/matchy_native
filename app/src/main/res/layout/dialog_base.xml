@@ -41,6 +41,21 @@
             android:visibility="gone"
             android:background="@drawable/base_button"/>
 
+
+        <TextView
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="yes"
+            android:fontFamily="@font/montserratbold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/base_button"/>
+
         <TextView
             android:id="@+id/btn_cancel"
             android:layout_width="match_parent"

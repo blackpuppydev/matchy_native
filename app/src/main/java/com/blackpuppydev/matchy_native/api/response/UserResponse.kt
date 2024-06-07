@@ -1,5 +1,6 @@
 package com.blackpuppydev.matchy_native.api.response
 
+
 data class UserResponse(
     var id: String = "",
     var name: String = "",

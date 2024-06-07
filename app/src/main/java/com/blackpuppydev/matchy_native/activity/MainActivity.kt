@@ -7,10 +7,12 @@ import androidx.fragment.app.Fragment
 import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.api.repository.UserRepository
 import com.blackpuppydev.matchy_native.api.response.DiscoverResponse
+import com.blackpuppydev.matchy_native.api.response.UserResponse
 import com.blackpuppydev.matchy_native.constance.LandingPage
 import com.blackpuppydev.matchy_native.databinding.ActivityMainBinding
 import com.blackpuppydev.matchy_native.fragment.main.*
 import com.blackpuppydev.matchy_native.listener.MainFragmentEvent
+import com.google.firebase.firestore.auth.User
 
 class MainActivity : BaseActivity() , MainFragmentEvent{
 
@@ -24,12 +26,6 @@ class MainActivity : BaseActivity() , MainFragmentEvent{
 
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.itemIconTintList = null
-
-        //test
-        replaceFragment(DiscoverFragment.newInstance(getTestDiscover()),true)
-        binding.btnIcon.visibility = View.VISIBLE
-        binding.mainCloset.visibility = View.GONE
-
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
@@ -65,7 +61,7 @@ class MainActivity : BaseActivity() , MainFragmentEvent{
                 R.id.commu -> {
                     showThreeButton()
                     binding.title.text = "Community"
-                    replaceFragment(CommunityFragment.newInstance("",""))
+                    replaceFragment(CommunityFragment.newInstance())
 
 
                 }
@@ -73,7 +69,9 @@ class MainActivity : BaseActivity() , MainFragmentEvent{
                 R.id.profile -> {
                     showThreeButton()
                     binding.title.text = "Profile"
-                    replaceFragment(ProfileFragment.newInstance("",""))
+                    val profileFragment = ProfileFragment.newInstance()
+                    profileFragment.setProfile(UserResponse("","","","",""))
+                    replaceFragment(profileFragment)
 
 
 
@@ -82,6 +80,16 @@ class MainActivity : BaseActivity() , MainFragmentEvent{
 
             true
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        //test
+        replaceFragment(DiscoverFragment.newInstance(getTestDiscover()),true)
+        binding.btnIcon.visibility = View.VISIBLE
+        binding.mainCloset.visibility = View.GONE
 
     }
 
@@ -100,8 +108,6 @@ class MainActivity : BaseActivity() , MainFragmentEvent{
     private fun showThreeButton(){
         binding.btnIcon.visibility = View.VISIBLE
         binding.mainCloset.visibility = View.GONE
-
-
     }
 
     override fun onSuccess() {

@@ -9,12 +9,12 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="main">#FA6E52</color>
+    <color name="main">#FD8B74</color>
     <color name="main_edit">#FFEFED</color>
-    <color name="bg_main">#F3F3F3</color>
+    <color name="bg_main">#858585</color>
 
-    <color name="text">#FF000000</color>
-    <color name="bg_head">#FFFFFF</color>
+    <color name="text">#FFFFFF</color>
+    <color name="bg_head">#FF000000</color>
 
 
 </resources>

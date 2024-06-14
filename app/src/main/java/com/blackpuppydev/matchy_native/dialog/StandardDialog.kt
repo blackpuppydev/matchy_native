@@ -4,17 +4,20 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
 import android.view.Window
-import com.blackpuppydev.matchy_native.api.repository.UserRepository
 import com.blackpuppydev.matchy_native.databinding.DialogBaseBinding
 
-abstract class BaseDialog(context: Context) : Dialog(context) {
+abstract class StandardDialog(context: Context) : Dialog(context) {
 
     private var binding:DialogBaseBinding = DialogBaseBinding.inflate(layoutInflater)
 
     init{
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+
+
         setContentView(binding.root)
         setCancelable(true)
 
@@ -23,7 +26,10 @@ abstract class BaseDialog(context: Context) : Dialog(context) {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
+    }
 
 
     private fun setMessage(title: String?) {
@@ -37,5 +43,7 @@ abstract class BaseDialog(context: Context) : Dialog(context) {
     }
 
     abstract fun onCancelClick()
+
+
 
 }

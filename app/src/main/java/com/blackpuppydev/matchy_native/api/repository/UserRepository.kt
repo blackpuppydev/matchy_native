@@ -20,12 +20,14 @@ class UserRepository {
 
 
 
-    fun getUserFromUsername(callback: (resp:UserResponse?) -> Unit){
+    fun getUserFromUsername(username:String, password:String,callback: (resp:UserResponse?) -> Unit){
 
-        ApiManager.getRetrofit().create(UserApi::class.java).getUser("nattawut.c").enqueue(object :
+        ApiManager.getRetrofit().create(UserApi::class.java).getUser(username).enqueue(object :
             Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>?, response: Response<UserResponse>?) {
-                callback.invoke(response?.body())
+                if (response?.body()?.password == password)
+                    callback.invoke(response.body())
+                else callback.invoke(null)
             }
 
             override fun onFailure(call: Call<UserResponse>?, t: Throwable?) {
@@ -33,6 +35,26 @@ class UserRepository {
             }
 
         })
+    }
+
+
+    private fun checkLogin(username:String, password:String):Boolean {
+
+        var successLogin = false
+
+        ApiManager.getRetrofit().create(UserApi::class.java).getUserWithUsername(username).enqueue(object : Callback<UserResponse>{
+            override fun onResponse(call: Call<UserResponse>?, response: Response<UserResponse>?) {
+                if (response?.body()?.password == password)
+                    successLogin = true
+            }
+
+            override fun onFailure(call: Call<UserResponse>?, t: Throwable?) {
+                successLogin = false
+            }
+        })
+
+        return successLogin
+
     }
 
 

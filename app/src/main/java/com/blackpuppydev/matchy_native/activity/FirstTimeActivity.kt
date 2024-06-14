@@ -7,6 +7,7 @@ import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.constance.LandingPage
 import com.blackpuppydev.matchy_native.databinding.ActivityFirstTimeBinding
 import com.blackpuppydev.matchy_native.fragment.first.ImageProfileFragment
+import com.blackpuppydev.matchy_native.fragment.first.WearProfileFragment
 import com.blackpuppydev.matchy_native.listener.FragmentEvent
 
 class FirstTimeActivity : BaseActivity(),FragmentEvent {
@@ -43,13 +44,19 @@ class FirstTimeActivity : BaseActivity(),FragmentEvent {
 
     }
 
-    override fun onResult(result: String, landingPage: String) {
+    override fun onResult(result: String, type: String, landingPage: String) {
+
+        when(type){
+            "wear" -> ""
+
+
+        }
 
 
 
         when (landingPage) {
-//            LandingPage.PAGE_STYLE -> replaceFragment(.newInstance(result))
-//            LandingPage.PAGE_WEAR -> replaceFragment(.newInstance(result))
+            LandingPage.PAGE_IMAGE -> replaceFragment(ImageProfileFragment.newInstance())
+            LandingPage.PAGE_WEAR -> replaceFragment(WearProfileFragment.newInstance())
         }
     }
 

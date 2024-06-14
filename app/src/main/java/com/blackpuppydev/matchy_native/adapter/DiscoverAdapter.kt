@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.api.response.DiscoverResponse
+import com.blackpuppydev.matchy_native.constance.LandingPage
 import com.blackpuppydev.matchy_native.databinding.DiscoverAdapterBinding
 import com.bumptech.glide.Glide
 
@@ -17,18 +18,18 @@ abstract class DiscoverAdapter(private var list_discover: ArrayList<DiscoverResp
     }
 
     override fun onBindViewHolder(holder: DiscoverAdapter.DiscoverViewHolder, position: Int) {
-        holder.setView(list_discover!![position])
+        holder.setView(list_discover[position])
 
         holder.binding.btnDiscover.apply {
             setOnClickListener {
-                onResult(list_discover!![position])
+                onResult(list_discover[position])
             }
         }
     }
 
     abstract fun onResult(result:DiscoverResponse)
 
-    override fun getItemCount(): Int = list_discover!!.size
+    override fun getItemCount(): Int = list_discover.size
 
     inner class DiscoverViewHolder (var binding: DiscoverAdapterBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -39,15 +40,16 @@ abstract class DiscoverAdapter(private var list_discover: ArrayList<DiscoverResp
                     .into(imageProfile)
 
                 when (type_page) {
-                    "pairing" -> {
+
+                    LandingPage.DIS_PAIRING -> {
                         textDiscover.text = discover.pairing.toString()
                         iconDiscover.setBackgroundResource(R.drawable.ic_pairing)
                     }
-                    "popular" -> {
+                    LandingPage.DIS_POPULAR -> {
                         textDiscover.text = discover.follower.toString()
                         iconDiscover.setBackgroundResource(R.drawable.ic_follower)
                     }
-                    "need help" -> {
+                    LandingPage.DIS_NEED -> {
                         textDiscover.text = discover.activity
                         iconDiscover.setBackgroundResource(R.drawable.ic_live)
                     }

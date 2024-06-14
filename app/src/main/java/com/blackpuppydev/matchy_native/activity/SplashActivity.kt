@@ -5,11 +5,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import com.blackpuppydev.matchy_native.AppPreference
-import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.databinding.ActivitySplashBinding
-import com.blackpuppydev.matchy_native.dialog.BaseDialog
+import com.blackpuppydev.matchy_native.dialog.StandardDialog
 
 
 @SuppressLint("CustomSplashScreen")
@@ -21,6 +19,10 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+
+//        checkNightMode()
+
         AppPreference.getInstance().setSharedPreference(applicationContext)
     }
 
@@ -34,7 +36,7 @@ class SplashActivity : BaseActivity() {
             override fun onFinish() {
 
                 if (!checkNetwork()){
-                    object : BaseDialog(this@SplashActivity){
+                    object : StandardDialog(this@SplashActivity){
                         override fun onCancelClick() {
                             dismiss()
                             finishAndRemoveTask()

@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream
 
 class AppPreference {
 
-    lateinit var sharedPreference: SharedPreferences
+    var sharedPreference: SharedPreferences? = null
 
     companion object{
 
@@ -34,27 +34,27 @@ class AppPreference {
     }
 
     fun setUsername(username:String){
-        sharedPreference.edit().putString(USERNAME,username).apply()
+        sharedPreference?.edit()?.putString(USERNAME,username)?.apply()
     }
 
     fun getUsername(): String? {
-        return sharedPreference.getString(USERNAME, "")
+        return sharedPreference?.getString(USERNAME, "")
     }
 
     fun setPassword(password:String){
-        sharedPreference.edit().putString(PASSWORD,password).apply()
+        sharedPreference?.edit()?.putString(PASSWORD,password)?.apply()
     }
 
     fun getPassword(): String? {
-        return sharedPreference.getString(PASSWORD, "")
+        return sharedPreference?.getString(PASSWORD, "")
     }
 
     fun setLanguage(language:String){
-        sharedPreference.edit().putString(LANGUAGE,language).apply()
+        sharedPreference?.edit()?.putString(LANGUAGE,language)?.apply()
     }
 
     fun getLanguage(): String? {
-        return sharedPreference.getString(LANGUAGE, "")
+        return sharedPreference?.getString(LANGUAGE, "")
     }
 
 
@@ -66,7 +66,7 @@ class AppPreference {
         val byteArray: ByteArray = byteArrayOutputStream.toByteArray()
 
         val encodedImage: String = android.util.Base64.encodeToString(byteArray, android.util.Base64.DEFAULT)
-        sharedPreference.edit().putString(IMAGE, encodedImage).apply()
+        sharedPreference?.edit()?.putString(IMAGE, encodedImage)?.apply()
 
 
         //get bitmap imageview
@@ -84,12 +84,20 @@ class AppPreference {
 //    }
 
     fun setImageProfile(uri:Uri){
-        sharedPreference.edit().putString(IMAGE, uri.toString()).apply()
+        sharedPreference?.edit()?.putString(IMAGE, uri.toString())?.apply()
     }
 
     fun getImageProfile():Uri?{
-        val image = sharedPreference.getString(IMAGE, "")
+        val image = sharedPreference?.getString(IMAGE, "")
         return Uri.parse(image)
+    }
+
+    fun setEnableNightMode(enable:Boolean){
+        sharedPreference?.edit()?.putBoolean("NightMode",enable)?.apply()
+    }
+
+    fun getEnableNightMode():Boolean{
+        return sharedPreference?.getBoolean("NightMode",false)!!
     }
 
 

@@ -13,4 +13,9 @@ object LandingPage {
     const val PAGE_COMMUNITY = "community"
     const val PAGE_PROFILE = "profile"
 
+
+    const val DIS_PAIRING = "pairing"
+    const val DIS_POPULAR = "popular"
+    const val DIS_NEED = "need help"
+
 }

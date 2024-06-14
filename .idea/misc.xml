@@ -44,6 +44,8 @@
         <entry key="app/src/main/res/layout/fragment_style.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_wear_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/hot_topic_adapter.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/image_people_adapter.xml" value="1.5240036010742188" />
+        <entry key="app/src/main/res/layout/style_adapter.xml" value="0.45" />
         <entry key="app/src/main/res/menu/bottom_navmenu.xml" value="0.32447916666666665" />
       </map>
     </option>

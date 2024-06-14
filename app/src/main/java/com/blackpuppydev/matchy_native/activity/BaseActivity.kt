@@ -8,8 +8,10 @@ import android.net.NetworkInfo
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.blackpuppydev.matchy_native.AppPreference
 import com.blackpuppydev.matchy_native.R
 import java.util.*
 
@@ -24,11 +26,16 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
+
+
+
+
+
     }
 
 
     @SuppressLint("MissingPermission")
-    fun checkNetwork(): Boolean {
+    public fun checkNetwork(): Boolean {
         val connectivityManager =
             getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
@@ -73,4 +80,35 @@ open class BaseActivity : AppCompatActivity() {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
     }
+
+
+//    fun enableNightMode(enable:Boolean){
+//
+//        if (enable) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//        } else {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//        }
+//
+//        AppPreference.getInstance().setEnableNightMode(enable)
+//
+//    }
+//
+//
+//    fun checkNightMode() {
+//
+//        AppPreference.getInstance().setSharedPreference(this)
+//
+//        if(!AppPreference.getInstance().getEnableNightMode()) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//
+//        } else {
+//            if (AppPreference.getInstance().getEnableNightMode()){
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//            } else {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//            }
+//        }
+//    }
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,6 +13,7 @@
 
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:gravity="top"
@@ -32,6 +33,21 @@
 
 
     </com.google.android.material.tabs.TabLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout"
+        android:padding="10sp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
 
     <!--    <com.google.android.material.tabs.TabLayout-->
     <!--        android:layout_width="match_parent"-->
@@ -65,4 +81,4 @@
     <!--        android:layout_height="wrap_content"-->
     <!--        android:text="fdgfhfh"/>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

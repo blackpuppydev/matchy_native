@@ -1,6 +1,7 @@
 package com.blackpuppydev.matchy_native.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -23,6 +24,8 @@ class MainActivity : BaseActivity() , MainFragmentEvent {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Log.e("MainActivity : ", "onCreate")
 
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.itemIconTintList = null

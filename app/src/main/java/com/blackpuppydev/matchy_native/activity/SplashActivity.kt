@@ -8,6 +8,7 @@ import android.os.CountDownTimer
 import com.blackpuppydev.matchy_native.AppPreference
 import com.blackpuppydev.matchy_native.databinding.ActivitySplashBinding
 import com.blackpuppydev.matchy_native.dialog.StandardDialog
+import com.blackpuppydev.matchy_native.listener.PermissionCallback
 
 
 @SuppressLint("CustomSplashScreen")
@@ -19,6 +20,15 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        setPermissionCallback(object : PermissionCallback{
+            override fun permissionGranted(type: String, granted: Boolean) {
+//                if (type == "storage" && granted) goToMain()
+//                else finish()
+                goToMain()
+            }
+
+        })
 
 
 //        checkNightMode()
@@ -43,17 +53,10 @@ class SplashActivity : BaseActivity() {
                         }
                     }.show("กรุณาเชื่อมต่ออินเทอร์เน็ต และลองใหม่อีกครั้ง")
                 } else {
-                    checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE)
-                    checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE,GALLERY_PERMISSION_CODE)
 
-                    if (AppPreference.getInstance().getLanguage().isNullOrEmpty()) setBaseLanguage("th-TH")
-                    else setBaseLanguage(AppPreference.getInstance().getLanguage().toString())
+                    if(checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, EXTERNAL_PERMISSION_CODE)) goToMain()
 
-//                    if (AppPreference.getInstance().getUsername().isNullOrEmpty()){
-//                        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-//                    } else {
-                        startActivity(Intent(this@SplashActivity,MainActivity::class.java))
-//                    }
+
                 }
             }
         }.start()
@@ -72,6 +75,17 @@ class SplashActivity : BaseActivity() {
         super.onDestroy()
     }
 
+    fun goToMain(){
+
+        if (AppPreference.getInstance().getLanguage().isNullOrEmpty()) setBaseLanguage("th-TH")
+        else setBaseLanguage(AppPreference.getInstance().getLanguage().toString())
+
+//                    if (AppPreference.getInstance().getUsername().isNullOrEmpty()){
+//                        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+//                    } else {
+        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+//                    }
+    }
 
 
 

@@ -23,6 +23,9 @@ class LoginActivity : BaseActivity() {
 
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
+
+        viewModel!!.callTestConnectDatabase()
+
         binding?.apply {
 
             btnLogin.setOnClickListener {
@@ -36,7 +39,11 @@ class LoginActivity : BaseActivity() {
 
                     if (viewModel!!.loginSuccess) {
 
-                        viewModel!!.setUserPreference(this@LoginActivity,binding?.editId?.text.toString(),binding?.editPassword?.text.toString())
+//                        viewModel!!.setUserPreference(this@LoginActivity,binding?.editId?.text.toString(),binding?.editPassword?.text.toString())
+                        //for mock room database
+//                        viewModel!!.setUser(applicationContext, UsersEntity(null,binding?.editId?.text.toString(),binding?.editPassword?.text.toString()))
+
+
 
                         //start to main
                         if(viewModel!!.appPreference.getImageProfile() == null){

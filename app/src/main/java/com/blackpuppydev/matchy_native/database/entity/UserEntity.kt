@@ -1,16 +1,15 @@
 package com.blackpuppydev.matchy_native.database.entity
 
-import androidx.room.ColumnInfo
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
+@Entity(tableName = "user")
+data class UsersEntity(
 
-    @Entity(tableName = "user")
-    data class UsersEntity(
-
-        @PrimaryKey(autoGenerate = true)
-        var id: Int?,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int?,
 
 //        @ColumnInfo(name = "first_name")
 //        var firstName: String? = null,
@@ -18,9 +17,17 @@ import androidx.room.PrimaryKey
 //        @ColumnInfo(name = "last_name")
 //        var lastName: String? = null,
 
-        var username: String? = null,
-        var password: String? = null
+    var username: String? = null,
+    var password: String? = null
 
-    )
+)
+
+
+@Entity(tableName = "Discover")
+data class DiscoverEntity(
+    var test:String? = null
+)
+
+
 
 

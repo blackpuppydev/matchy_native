@@ -42,7 +42,7 @@ class DiscoverViewModel : ViewModel() {
             pairing = 60
             follower = 1549
             activity = "dating"
-            imgProfile = "https://s3-alpha-sig.figma.com/img/6267/26b2/be2595433c28eda2a913cea75a86a8c4?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CFR3Clo2tIHBIrVQyE8kwmSyIAbFMuC1DMYhLX~56rGmwe8DIXX3O77hk9XmkTyAAEjD3UdZsDJzfS7P0m8yFwySh3tJU1ShX-SrfVNrSUoBDdzVo6RZ~pzCHvK7WHzOYa7zzXO~g8FrkyiJQPZv9J3o1Tg3fnKVkM8~DMznM8mCsf9WNUh43to2P36eT5QxRquYtztQJ-3L7x~Zmtet1SFTHuF2ejl5-9jMvK0G6wYSdUxxtTsGS4Sxa9-lRI8U0UijZ8giatQruBsFSh~Hcvi5HC9KkPTyY~-S-YryENeLwdED1x2xRco0gmKvoWyAIvrgsHWYTINmWznptsJXmw__"
+            imgProfile = "https://s3-alpha-sig.figma.com/img/6267/26b2/be2595433c28eda2a913cea75a86a8c4?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Vy35FFYU5oTHfmPotbsDEzTu8WQyP9dfGed-llsT6twuL5uBnE51xnMgj7Ne063CRagEU2UjqGpyw-MkJF8Eat3HJ0URC6HuZHq9SZGztQntlApT7DvyRbj3Ks6j8Zum0WPgvJpTSFB6bs-kLVro1QJVIrrU-I~QyXykSxGAeV9WdQRgZLHQBeHS4O4QrdziLqmkCmQWAv3oY2dtoWziwSI4Vvv8kn40fJV6CCvVXX~xgkFEb8xddkKYn5ZCmf7-LHJyDSuNzRY1x2U2j3a--iuCKOxwOSlk8FvgsFy6ny-iRGZ9csFzD1NSJnUoHfinX-C5Qzo0jG~5sSqFO8K58g__"
         }
 
         val discover2 = DiscoverResponse().apply {
@@ -78,7 +78,7 @@ class DiscoverViewModel : ViewModel() {
             pairing = 60
             follower = 1549
             activity = "dating"
-            imgProfile = "https://s3-alpha-sig.figma.com/img/a27b/b91a/fb0ec304610b4834f08a60cec93a7a06?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ns9QA4lqG-EkTaofdIJR51KxJcDbvbrAFT7bqMGOEmseHibZMYwzh5hsBpg~-idBIkOvs1aUSHANLw42ipP41DIOR3EKtxnTlSpeeRwYG700qI8z4yb3omAZMR5BeZEq70kc~I05CTcdzQ-R0xPR6QpJnf7VRAwoKDsacpM1OKM2IkmTnU-ZYGTWK-hKZEFY9Y9VjxaVkBFPPJLZyTObbglbsqgMVjKpmgX~E9PJUK~Y2yIHdAUNUcVUa9Ol05iAco0jhgiRWPUx36yI87pdxqpcvFlaQU4SU9iay9QQGz4Rb068gSIs17J~OqkEJ-XWPFMEkAFWlvW2pjfXryzZ-w__"
+            imgProfile = "https://s3-alpha-sig.figma.com/img/6267/26b2/be2595433c28eda2a913cea75a86a8c4?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Vy35FFYU5oTHfmPotbsDEzTu8WQyP9dfGed-llsT6twuL5uBnE51xnMgj7Ne063CRagEU2UjqGpyw-MkJF8Eat3HJ0URC6HuZHq9SZGztQntlApT7DvyRbj3Ks6j8Zum0WPgvJpTSFB6bs-kLVro1QJVIrrU-I~QyXykSxGAeV9WdQRgZLHQBeHS4O4QrdziLqmkCmQWAv3oY2dtoWziwSI4Vvv8kn40fJV6CCvVXX~xgkFEb8xddkKYn5ZCmf7-LHJyDSuNzRY1x2U2j3a--iuCKOxwOSlk8FvgsFy6ny-iRGZ9csFzD1NSJnUoHfinX-C5Qzo0jG~5sSqFO8K58g__"
         }
 
         val discover6 = DiscoverResponse().apply {

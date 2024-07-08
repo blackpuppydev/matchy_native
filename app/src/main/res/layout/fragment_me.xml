@@ -8,9 +8,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bg_main"
     android:orientation="vertical"
-    tools:context=".fragment.main.ProfileFragment">
+    tools:context=".fragment.main.MeFragment">
 
     <LinearLayout
+        android:id="@+id/btn_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20sp"
@@ -257,15 +258,21 @@
             android:text="L A N G U A G E"/>
 
 
-        <TextView
-            android:id="@+id/title_language"
+        <ImageView
+            android:id="@+id/icon_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ENG"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:textColor="@color/text"
-            android:gravity="center"/>
+            android:src="@drawable/us_flag"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/title_language"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="ENG"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textColor="@color/text"-->
+<!--            android:gravity="center"/>-->
 
 
     </LinearLayout>

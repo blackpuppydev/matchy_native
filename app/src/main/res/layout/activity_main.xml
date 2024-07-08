@@ -88,6 +88,7 @@
                     android:fontFamily="@font/montserratmedium"
                     android:padding="10dp"
                     android:text="AUTO MATCH"
+
                     android:layout_marginRight="10sp"
                     android:textColor="@color/main"
                     android:textSize="10sp" />

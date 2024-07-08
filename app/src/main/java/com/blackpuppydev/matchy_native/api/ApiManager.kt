@@ -1,8 +1,11 @@
 package com.blackpuppydev.matchy_native.api
 
+import com.blackpuppydev.matchy_native.BuildConfig
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class ApiManager {
 
@@ -11,8 +14,8 @@ class ApiManager {
 
         fun getRetrofit() : Retrofit {
             val builder: Retrofit.Builder = Retrofit.Builder()
-                .baseUrl("http://172.18.2.93:8080")
-                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(BuildConfig.END_POINT)
+                .addConverterFactory(getConvertFactory())
 //            .client(getOkHttpClient())
             return builder.build()
         }
@@ -22,6 +25,15 @@ class ApiManager {
             return null
         }
 
+        private fun getConvertFactory():GsonConverterFactory{
+            return GsonConverterFactory.create(GsonBuilder()
+                .setLenient()
+                .setPrettyPrinting()
+                .create())
+        }
 
     }
+
+
+
 }

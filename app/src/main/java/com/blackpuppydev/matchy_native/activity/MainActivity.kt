@@ -1,31 +1,30 @@
 package com.blackpuppydev.matchy_native.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.blackpuppydev.matchy_native.R
-import com.blackpuppydev.matchy_native.api.repository.UserRepository
-import com.blackpuppydev.matchy_native.api.response.DiscoverResponse
 import com.blackpuppydev.matchy_native.api.response.UserResponse
 import com.blackpuppydev.matchy_native.constance.LandingPage
 import com.blackpuppydev.matchy_native.databinding.ActivityMainBinding
 import com.blackpuppydev.matchy_native.fragment.main.*
 import com.blackpuppydev.matchy_native.listener.MainFragmentEvent
-import com.google.firebase.firestore.auth.User
+import com.blackpuppydev.matchy_native.manager.Language
 
 class MainActivity : BaseActivity() , MainFragmentEvent {
 
 
     private lateinit var binding:ActivityMainBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.e("MainActivity : ", "onCreate")
+        Log.e("MainActivity : ", "onCreate " + Language.getLanguage())
 
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.itemIconTintList = null
@@ -38,11 +37,7 @@ class MainActivity : BaseActivity() , MainFragmentEvent {
                     binding.btnIcon.visibility = View.GONE
                     binding.mainCloset.visibility = View.VISIBLE
                     binding.title.text = "Closet"
-                    UserRepository.newInstance().getUserCloset("nattawut.c"){
-
-                    }
-                    replaceFragment(ClosetFragment.newInstance("",""))
-
+                    replaceFragment(ClosetFragment.newInstance())
                 }
 
                 R.id.discover -> {
@@ -74,7 +69,7 @@ class MainActivity : BaseActivity() , MainFragmentEvent {
                 R.id.profile -> {
                     showThreeButton()
                     binding.title.text = "Profile"
-                    val profileFragment = ProfileFragment.newInstance()
+                    val profileFragment = MeFragment.newInstance()
                     profileFragment.setProfile(UserResponse("","","","",""))
                     replaceFragment(profileFragment)
 
@@ -91,12 +86,13 @@ class MainActivity : BaseActivity() , MainFragmentEvent {
     override fun onResume() {
         super.onResume()
 
-        //test
-//        replaceFragment(DiscoverFragment.newInstance(getTestDiscover()),true)
+
         replaceFragment(DiscoverFragment.newInstance(),true)
 
         binding.btnIcon.visibility = View.VISIBLE
         binding.mainCloset.visibility = View.GONE
+
+        binding.bottomNavigationView.selectedItemId = R.id.discover
 
     }
 

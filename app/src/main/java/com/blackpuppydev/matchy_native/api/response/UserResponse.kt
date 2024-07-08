@@ -6,6 +6,9 @@ data class UserResponse(
     var name: String = "",
     var lastName:String = "",
     var username:String = "",
-    var password:String = ""
+    var password:String = "",
+    var email:String = ""
+//    var image:String="",
+//    var imei:String=""
     )
 

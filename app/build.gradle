@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply from: 'dev_env.gradle'
+
 android {
     compileSdk 32
 
@@ -42,8 +44,6 @@ android {
 
 
 dependencies {
-
-
 
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'

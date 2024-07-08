@@ -1,45 +1,95 @@
 package com.blackpuppydev.matchy_native.fragment.main
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.blackpuppydev.matchy_native.BuildConfig
 import com.blackpuppydev.matchy_native.R
-
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.blackpuppydev.matchy_native.adapter.ClosetAdapter
+import com.blackpuppydev.matchy_native.api.response.ClosetResponse
+import com.blackpuppydev.matchy_native.databinding.FragmentClosetBinding
+import com.blackpuppydev.matchy_native.listener.MainFragmentEvent
+import com.blackpuppydev.matchy_native.viewmodel.ClosetViewModel
 
 
 class ClosetFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var binding:FragmentClosetBinding
+    private lateinit var viewModel:ClosetViewModel
+
+    lateinit var listener:MainFragmentEvent
+
+    private var list_closet:ArrayList<ClosetResponse>? = null
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            listener = context as MainFragmentEvent
+        }
+        catch (e: ClassCastException){ }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+        viewModel = ViewModelProvider(this)[ClosetViewModel::class.java]
+        viewModel.itemCloset.observe(this){
+                list_closet = it
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_closet, container, false)
+    override fun onResume() {
+        super.onResume()
     }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentClosetBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getCloset(BuildConfig.TEST_USERNAME)
+        viewModel.itemCloset.observe(viewLifecycleOwner){
+            list_closet = it
+
+            binding.apply {
+                listCloset.apply {
+                    layoutManager = GridLayoutManager(context, 2)
+                    adapter = object : ClosetAdapter(list_closet!!){
+                        override fun onSelectItem(closet: ClosetResponse) {
+                            Log.e("ClosetFragment : " , "selected -> " + closet.title)
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+    }
+
+
+
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             ClosetFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+                arguments = Bundle().apply {}
             }
     }
 }

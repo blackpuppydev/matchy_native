@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.adapter.StyleAdapter
-import com.blackpuppydev.matchy_native.databinding.FragmentProfileBinding
 import com.blackpuppydev.matchy_native.databinding.FragmentStyleBinding
 import com.blackpuppydev.matchy_native.model.StyleModel
 

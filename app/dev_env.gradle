@@ -1,0 +1,17 @@
+android{
+    productFlavors {
+        flavorDimensions("develop")
+        develop {
+            applicationIdSuffix ".dev"
+            versionCode 100
+            versionName "1.0.0"
+
+            buildConfigField 'String', "END_POINT",'"http://192.168.1.157:8080"'
+            buildConfigField 'String', "TEST_USERNAME", '"nattawut.c"'
+            buildConfigField 'String', "TEST_PASSWORD", '"shop1234"'
+
+        }
+    }
+
+
+}

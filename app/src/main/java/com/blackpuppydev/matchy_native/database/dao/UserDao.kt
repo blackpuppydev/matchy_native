@@ -9,14 +9,18 @@ interface UserDao {
     @Insert
     fun insertUser(userEntity: UsersEntity)
 
-    @Update()
+    @Update
     fun updateUser(userEntity: UsersEntity)
 
     @Delete
     fun deleteUser(userEntity: UsersEntity)
 
     @Query("SELECT * FROM user")
-    fun getUserAll(): List<UsersEntity>
+    fun getUser(): UsersEntity
+
+
+    @Query("SELECT id From user")
+    fun getLogin(): UsersEntity
 
 
     @Query("DELETE FROM user")

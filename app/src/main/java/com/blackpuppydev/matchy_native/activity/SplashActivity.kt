@@ -6,9 +6,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import com.blackpuppydev.matchy_native.AppPreference
+import com.blackpuppydev.matchy_native.database.UserDatabase
 import com.blackpuppydev.matchy_native.databinding.ActivitySplashBinding
 import com.blackpuppydev.matchy_native.dialog.StandardDialog
 import com.blackpuppydev.matchy_native.listener.PermissionCallback
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 
 @SuppressLint("CustomSplashScreen")
@@ -21,7 +26,7 @@ class SplashActivity : BaseActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        setPermissionCallback(object : PermissionCallback{
+        setPermissionCallback(object : PermissionCallback {
             override fun permissionGranted(type: String, granted: Boolean) {
 //                if (type == "storage" && granted) goToMain()
 //                else finish()
@@ -75,6 +80,7 @@ class SplashActivity : BaseActivity() {
         super.onDestroy()
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun goToMain(){
 
         if (AppPreference.getInstance().getLanguage().isNullOrEmpty()) setBaseLanguage("th-TH")
@@ -83,8 +89,21 @@ class SplashActivity : BaseActivity() {
 //                    if (AppPreference.getInstance().getUsername().isNullOrEmpty()){
 //                        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
 //                    } else {
-        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+//        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
 //                    }
+
+        GlobalScope.launch {
+            try {
+                if (UserDatabase.getUserDatabase(this@SplashActivity).userDao().getUser().id != null){
+                    startActivity(Intent(this@SplashActivity,MainActivity::class.java))
+                } else startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+            } catch (e:Exception) {
+                startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+            }
+
+
+        }
+
     }
 
 

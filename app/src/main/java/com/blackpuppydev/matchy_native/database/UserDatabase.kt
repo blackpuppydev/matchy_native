@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.blackpuppydev.matchy_native.database.dao.UserDao
+import com.blackpuppydev.matchy_native.database.entity.DiscoverEntity
 import com.blackpuppydev.matchy_native.database.entity.UsersEntity
 
 

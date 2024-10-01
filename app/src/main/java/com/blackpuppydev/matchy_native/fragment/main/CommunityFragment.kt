@@ -12,6 +12,7 @@ import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.adapter.CategoryAdapter
 import com.blackpuppydev.matchy_native.adapter.HotTopicAdapter
 import com.blackpuppydev.matchy_native.databinding.FragmentCommunityBinding
+import com.blackpuppydev.matchy_native.dialog.LoadingDialog
 import com.blackpuppydev.matchy_native.model.CategoryModel
 import com.blackpuppydev.matchy_native.model.HotTopicModel
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -50,6 +51,7 @@ class CommunityFragment : Fragment() {
 
 
             slider.setImageList(picSlide,ScaleTypes.FIT)
+
 
 
             listCategory.apply {

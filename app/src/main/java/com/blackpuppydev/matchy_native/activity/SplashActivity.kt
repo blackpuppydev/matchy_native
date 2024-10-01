@@ -94,11 +94,11 @@ class SplashActivity : BaseActivity() {
 
         GlobalScope.launch {
             try {
-                if (UserDatabase.getUserDatabase(this@SplashActivity).userDao().getUser().id != null){
+//                if (UserDatabase.getUserDatabase(this@SplashActivity).userDao().getUser().id != null){
                     startActivity(Intent(this@SplashActivity,MainActivity::class.java))
-                } else startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+//                } else startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
             } catch (e:Exception) {
-                startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+//                startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
             }
 
 

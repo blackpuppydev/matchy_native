@@ -1,6 +1,7 @@
 package com.blackpuppydev.matchy_native.api
 
 import com.blackpuppydev.matchy_native.api.response.ClosetResponse
+import com.blackpuppydev.matchy_native.api.response.ProfileResponse
 import com.blackpuppydev.matchy_native.api.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -28,5 +29,10 @@ interface UserApi {
 
     @GET("$USER/closet")
     fun getCloset(@Query("username") username:String) : Call<List<ClosetResponse>>
+
+
+    //get profile
+    @GET("$USER/profile")
+    fun getProfile(@Query("username") username:String) : Call<ProfileResponse>
 
 }

@@ -18,12 +18,13 @@ class ClosetViewModel : ViewModel() {
 //        Log.d("ClosetViewModel : " , username)
 
         if (username != null) {
-            UserRepository.newInstance().getUserCloset(username){
-                if (it?.size != 0){
-                    listTestCloset = it as ArrayList<ClosetResponse>?
-                    itemCloset.postValue(listTestCloset)
-                }
-            }
+//            UserRepository.newInstance().getUserCloset(username){
+//                if (it?.size != 0){
+//                    listTestCloset = it as ArrayList<ClosetResponse>?
+//                    itemCloset.postValue(listTestCloset)
+//                }
+//            }
+            itemCloset.postValue(getTestCloset())
         }
 //        if (username.isNullOrEmpty()){
 //            itemCloset?.postValue(null)

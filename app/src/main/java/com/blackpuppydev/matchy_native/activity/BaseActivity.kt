@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.blackpuppydev.matchy_native.AppPreference
 import com.blackpuppydev.matchy_native.R
 import com.blackpuppydev.matchy_native.database.UserDatabase
@@ -103,7 +104,6 @@ open class BaseActivity : AppCompatActivity() {
         dao = UserDatabase.getUserDatabase(this).userDao()
     }
 
-
     override fun onLowMemory() {
         super.onLowMemory()
         System.gc()
@@ -112,6 +112,15 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
+    fun replaceFragment(fragment: Fragment, isAppInit:Boolean = false){
+
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+
+        if (isAppInit) fragmentTransaction.add(R.id.content,fragment)
+        else fragmentTransaction.replace(R.id.content,fragment)
+
+        fragmentTransaction.commit()
+    }
 
     private fun createNotificationChannel() {
 

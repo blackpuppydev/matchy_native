@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:text="Discover"
                 android:textColor="@color/main"
-                android:textSize="20sp"
+                android:textSize="@dimen/dimen_text"
                 android:textStyle="bold" />
 
 

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50sp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/bgfragment"
+    tools:context=".fragment.first.WearProfileFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/main"
+        android:fontFamily="@font/montserratbold"
+        android:layout_margin="30sp"
+        android:textSize="20sp"
+        android:text="You are ..." />
+
+
+
+    <ImageView
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/imgwear"/>
+
+
+    <RadioGroup
+        android:id="@+id/group_wear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30sp">
+
+        <RadioButton
+            android:id="@+id/select_menwear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main"
+            android:fontFamily="@font/montserratmedium"
+            android:text="Only Menwears"/>
+
+        <RadioButton
+            android:id="@+id/select_womenwear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main"
+            android:fontFamily="@font/montserratmedium"
+            android:text="Only Womenwears"/>
+
+        <RadioButton
+            android:id="@+id/select_bothwear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main"
+            android:fontFamily="@font/montserratmedium"
+            android:text="I wear both of them"/>
+
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/base_button"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:layout_margin="20sp"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10sp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle_2"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle_2"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle_2"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50sp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/bgfragment"
+    tools:context=".fragment.first.ImageProfileFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/main"
+        android:fontFamily="@font/montserratbold"
+        android:layout_margin="30sp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Add your name and photo" />
+
+
+
+    <ImageView
+        android:id="@+id/image_profile"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/imgprofile"/>
+
+
+    <TextView
+        android:id="@+id/btn_add_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/base_edit"
+        android:text="A D D  P H O T O"
+        android:textSize="10sp"
+        android:layout_margin="10sp"
+        android:padding="15sp"
+        android:textColor="@color/main"
+        android:fontFamily="@font/montserratbold"/>
+
+
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:textSize="15sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginBottom="30sp"
+        android:fontFamily="@font/montserratmedium"
+        android:hint="@string/name"
+        android:background="@drawable/base_edit"/>
+
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/base_button"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:layout_margin="20sp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10sp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle_2"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle_2"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/base_circle_2"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

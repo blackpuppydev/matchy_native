@@ -10,10 +10,12 @@ import com.blackpuppydev.matchy_native.api.response.UserResponse
 import com.blackpuppydev.matchy_native.database.UserDatabase
 import com.blackpuppydev.matchy_native.database.entity.UsersEntity
 import com.blackpuppydev.matchy_native.dialog.StandardDialog
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
+
 
     var loginSuccess:Boolean = false
     var appPreference: AppPreference = AppPreference.getInstance()
@@ -28,6 +30,8 @@ class LoginViewModel : ViewModel() {
 //        UserRepository.newInstance().addTestUser(user){
 //            Log.e("callTestConnectDatabase", "connect success : $it")
 //        }
+
+
     }
 
 

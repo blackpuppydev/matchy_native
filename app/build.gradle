@@ -3,11 +3,26 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 apply from: 'dev_env.gradle'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/shoppermacbook/Desktop/matchynative/matchy.keystore')
+            keyAlias 'matchy'
+            storePassword 'shoppy123'
+            keyPassword 'shoppy123'
+        }
+        release {
+            storeFile file('/Users/shoppermacbook/Desktop/matchynative/matchy.keystore')
+            keyAlias 'matchy'
+            storePassword 'shoppy123'
+            keyPassword 'shoppy123'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -22,8 +37,12 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {

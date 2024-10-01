@@ -29,15 +29,15 @@ class FirstTimeActivity : BaseActivity(),FragmentEvent {
     }
 
 
-    private fun replaceFragment(fragment: Fragment, isAppInit:Boolean = false){
-
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-
-        if (isAppInit) fragmentTransaction.add(R.id.content,fragment)
-        else fragmentTransaction.replace(R.id.content,fragment)
-
-        fragmentTransaction.commit()
-    }
+//    private fun replaceFragment(fragment: Fragment, isAppInit:Boolean = false){
+//
+//        val fragmentTransaction = supportFragmentManager.beginTransaction()
+//
+//        if (isAppInit) fragmentTransaction.add(R.id.content,fragment)
+//        else fragmentTransaction.replace(R.id.content,fragment)
+//
+//        fragmentTransaction.commit()
+//    }
 
 
     override fun onSuccess() {

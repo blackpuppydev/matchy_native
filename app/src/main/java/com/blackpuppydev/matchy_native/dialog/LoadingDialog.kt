@@ -18,10 +18,6 @@ class LoadingDialog(context: Context) : Dialog(context) {
         setContentView(binding.root)
         setCancelable(false)
 
-
-
-
-
     }
 
 
